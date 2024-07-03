@@ -12,18 +12,22 @@ def clean_data(input_path, output_path):
     # Remove rows that have null value(s)
     data = data.dropna(how='any',axis=0) 
 
-    # Change string data values to int
+    # Change String data values to categorical 
+    data['species'] = data['species'].astype('category').cat.codes
+    data['island'] = data['island'].astype('category').cat.codes
+    data['sex'] = data['sex'].astype('category').cat.codes
 
+    # Change string data values to int
     # Island
     # Torgersen = 1, Biscoe = 2, Dream = 3
-    data.loc[data["island"] == "Torgersen", "island"] = 1
-    data.loc[data["island"] == "Biscoe", "island"] = 2
-    data.loc[data["island"] == "Dream", "island"] = 3
+    # data.loc[data["island"] == "Torgersen", "island"] = 1
+    # data.loc[data["island"] == "Biscoe", "island"] = 2
+    # data.loc[data["island"] == "Dream", "island"] = 3
 
     # Sex
     # Male = 1, Female =2
-    data.loc[data["sex"] == "Male", "sex"] = 1
-    data.loc[data["sex"] == "Female", "sex"] = 2
+    # data.loc[data["sex"] == "Male", "sex"] = 1
+    # data.loc[data["sex"] == "Female", "sex"] = 2
 
     # Save processed data
     data.to_csv(output_path, index=False)
