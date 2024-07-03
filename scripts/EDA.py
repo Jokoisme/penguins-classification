@@ -1,5 +1,6 @@
 import pandas as pd
 import seaborn as sns
+import numpy as np
 import matplotlib.pyplot as plt
 
 def perform_eda(input_path):
@@ -11,10 +12,16 @@ def perform_eda(input_path):
     print(data.describe())
 
     # Correlation
-    sns.pairplot(data, hue = "species")
-    plt.savefig("results/figures/pairplot.png") 
     
-    print("EDA completed. Pairplot saved to results/figures/pairplot.png")
+    # Change String data values to categorical 
+    data['species'] = data['species'].astype('category').cat.codes
+    data['island'] = data['island'].astype('category').cat.codes
+    data['sex'] = data['sex'].astype('category').cat.codes
+
+    dataplot = sns.heatmap(data.corr(), cmap="YlGnBu", annot=True) 
+    plt.savefig("results/figures/correlation.png") 
+    
+    print("EDA completed. Correlation plot saved to results/figures.correlation.png")
 
 if __name__ == "__main__":
     perform_eda('data/processed/penguins_processed.csv')
