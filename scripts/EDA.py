@@ -17,4 +17,4 @@ def perform_eda(input_path):
     print("EDA completed. Pairplot saved to results/figures/pairplot.png")
 
 if __name__ == "__main__":
-    perform_eda('penguins_processed.csv')
+    perform_eda('data/processed/penguins_processed.csv')
