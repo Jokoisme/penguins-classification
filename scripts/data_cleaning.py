@@ -2,11 +2,6 @@
 import pandas as pd
 import seaborn
 
-# Example cleaning: renaming columns
-
-penguins = seaborn.load_dataset("penguins")
-type(penguins)
-
 def clean_data(input_path, output_path):
     # Load raw data
     data = seaborn.load_dataset("penguins")
@@ -23,8 +18,8 @@ def clean_data(input_path, output_path):
     print("Data cleaning completed and saved to", output_path)
 
 if __name__ == "__main__":
-    clean_data('penguins.csv', 'penguins_processed.csv')
+    filepath = "https://raw.githubusercontent.com/Jokoisme/penguins-classification/main/data/raw/penguins.csv"
 
-data.to_csv('iris_processed.csv', index=False)
+    clean_data('penguins.csv', 'data/processed/penguins_processed.csv')
 
 print("Data cleaning completed and saved to data/processed/iris_processed.csv")
