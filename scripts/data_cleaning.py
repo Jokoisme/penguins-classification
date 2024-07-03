@@ -12,11 +12,6 @@ def clean_data(input_path, output_path):
     # Remove rows that have null value(s)
     data = data.dropna(how='any',axis=0) 
 
-    # Change String data values to categorical 
-    data['species'] = data['species'].astype('category').cat.codes
-    data['island'] = data['island'].astype('category').cat.codes
-    data['sex'] = data['sex'].astype('category').cat.codes
-
     # Change string data values to int
     # Island
     # Torgersen = 1, Biscoe = 2, Dream = 3
