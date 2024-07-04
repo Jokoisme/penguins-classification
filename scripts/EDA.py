@@ -15,9 +15,9 @@ def perform_eda(input_path):
     plt.ylabel("Number of penguins") 
     plt.title("Number of penguins for each species by gender") 
     plt.legend() 
-    plt.show() 
 
     plt.savefig("results/figures/speciesCount.png")
+    plt.show()
 
     # Basic statistics
     print(data.describe())
@@ -37,8 +37,8 @@ def perform_eda(input_path):
 
     # Adjust layout and show plots
     plt.tight_layout()
-    plt.show()
     plt.savefig("results/figures/numericalPlot.png") 
+    plt.show()
     
     # Correlation
     
